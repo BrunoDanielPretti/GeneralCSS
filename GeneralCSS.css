@@ -1,4 +1,4 @@
-/* VERSION 1.0                                  */
+/* VERSION 1.0.1                                */
 /*#region VARIABLES                             */
 :root {
     --bg-col-main:     #222120;    
@@ -334,9 +334,17 @@ th, td{
     -ms-user-select: none; /* Internet Explorer */
     -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
     -webkit-user-select: none; /* Chrome, Safari, and Opera */
-    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
-    cursor: pointer;
+    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/    
     text-align: center;  
+    /* cursor: pointer; */
+}
+
+th{
+  border: 1px solid var(--border-col);  
+}
+
+td{  
+  border: 1px solid var(--border-col);  
 }
 
 .td-btn{
@@ -350,74 +358,53 @@ th, td{
     color: var(--font-col-yellow);
 }
 
-.td2{
-    cursor: default;
-}
-
 .td-br:hover .btn-icon{
     border-color: var(--font-col-yellow);
-}
-
-.td-br{  
-    border-width: 1px; 
-    border-right-style: solid;
-    border-left-style: solid; 
-    border-color: var(--border-col);
-}
-
-.td-br:hover{
-    background: var(--bg-col-trans-cl);
-    cursor: pointer;
-    transition: 0.15s;
-    color: var(--font-col-sec);
-    background-color:  var(--bg-col-hov-dk);
-   
 }
   
 .table{    
     color: var(--font-col-main);    
-    background-color:  var(--bg-col-dk);       
+    background-color:  var(--bg-col-dk);   
+    margin-bottom: 0px;   
+}
+
+.trHov tr:hover, .tdHov td:hover, .thHov th:hover{  
+  cursor: pointer;
+  background-color: var(--bg-col-trans);
+  color: var(--font-col-hov)
 }
 
 thead{
-    border-top-style: solid;
-    border-color: var(--border-col);  
+    border: 2px solid var(--border-col);
     background-color:  var(--bg-col-hov-dk);
-    color: var(--font-col-sec);  
+    color: var(--font-col-sec);          
 }
 
-th{
-    border-style: solid; 
-    border-width: 1px;
-    border-color: rgb(73, 65, 56);
+.scroller th:after{  
+  content:'';
+  position:absolute;
+  left: 0;
+  bottom: 0;
+  width:100%;
+  border-bottom: 1px solid var(--border-col);
+} 
+.scroller th:before{
+  content:'';
+  position:absolute;
+  left: 0;
+  top: 0;
+  width:100%;
+  border-top: 1px solid var(--border-col);
 }
 
 tbody{  
-    border: 2px solid rgb(73, 65, 56);
-}
-
-td{  
-    border-bottom-style: solid;  
-    border-width: 1px;
-    border-color: rgb(73, 65, 56);
-    border-right: 1px solid rgb(39, 36, 35);
-}
-
-.td-br:hover td{
-    border-right: 1px solid rgb(54, 50, 49);
-}
-
-.tr-selected:hover{
-    background-color: #8877599d;
-}
-.tr-edited{
-    color: var(--font-col-yellow);
+    border: 2px solid var(--border-col);  
 }
 
 
 .table > thead > tr > th{
     vertical-align: bottom;
-    border: 2px solid rgb(73, 65, 56);  
+    border: 1px solid var(--border-col); 
 }
 
 .table > tbody > tr > td{
@@ -430,8 +417,20 @@ td{
 }
 
 .tr-selected{
-    /* background-color: #8d78559d; */
-    background-color: var(--bg-col-trans-cl);
+  background-color: var(--bg-col-trans-cl);  
+  font-weight: bold
+}
+.tr-selected:hover{   
+  background-color: var(--bg-col-trans-cl) !important;
+  filter: brightness(1.1) !important; 
+}
+
+.tr-edited{
+  color: var(--font-col-yellow);
+}
+
+table .thP3 tr th{
+  padding: 3px !important;
 }
 
 /*#endregion */
@@ -508,9 +507,6 @@ td{
 /*#endregion*/
 /*#region LISTAS*/
 
-
-
-
 .zebra-list{
   list-style-type: none; /* Remove bullets */    
   border: 1px solid var(--border-col);
@@ -547,6 +543,10 @@ td{
 
 
 /*#endregion*/
+/*#region PRUEBAS!!*/
+
+/*#endregion*/
+
 /*#region Otros */
 .m8 {
   margin-top: 8px;
@@ -555,12 +555,18 @@ td{
 .scroller {
   /* width: 300px;
   height: 100px; */
-  overflow-y: scroll;
+  overflow-y: auto;
   scrollbar-color: var(--bg-col-hov) var(--bg-col-dk);
   scrollbar-width: thin;
+  padding-right: 1px;
 }
 
-selector{
-  background-color: red;
+.scroller thead{
+  position: sticky;
+  top: 0;      
 }
+
+
+
+
 /*#endregion */
